@@ -1,0 +1,15 @@
+{
+  "name": "niagara/php",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Raymond WP",
+      "email": "rwp1byte@gmail.com"
+    }
+  ],
+  "require": {
+    "workerman/workerman": "^4.1"
+  }
+}
