@@ -18,7 +18,7 @@ class DataHub
         $this->connections[] = $connection;
         if(count($this->connections) == 1) {
             // start data when at least one connection is connected
-            $this->generateAndSendData();
+            $this->broadcastData();
         }
     }
 
@@ -35,7 +35,7 @@ class DataHub
         }
     }
 
-    public function generateAndSendData() {
+    public function broadcastData() {
         $timeout_between_data = 60 / $this->rate;
         echo "Start data generation";
         \Workerman\Lib\Timer::add($timeout_between_data, function()
