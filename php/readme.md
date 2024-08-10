@@ -18,3 +18,5 @@ php ws.php
 ```bash
 php ws.php --host=localhost --port=8080 --rate=10 --worker=10
 ```
+> open postman and try to connect with ws://{host}:{port}
+> Known issues: need to wait around 10 seconds to be able to connect to the server -_-

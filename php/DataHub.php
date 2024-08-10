@@ -1,20 +1,25 @@
 <?php
 use Workerman\Connection\TcpConnection;
+require_once __DIR__ . '/RandomDataGenerator.php';
 class DataHub
 {
     private array $connections = [];
     private int $rate;
+    private RandomDataGenerator $randomDataGenerator;
     public function __construct(int $rate)
     {
-        echo "Create Object\n";
         $this->rate = $rate;
-        $this->generateAndSendData();
+        $this->randomDataGenerator = new RandomDataGenerator();
     }
 
     public function addConnection(TcpConnection $connection)
     {
         echo "New Connection added, id: $connection->id\n";
         $this->connections[] = $connection;
+        if(count($this->connections) == 1) {
+            // start data when at least one connection is connected
+            $this->generateAndSendData();
+        }
     }
 
     public function removeConnection(TcpConnection $connection)
@@ -24,22 +29,21 @@ class DataHub
             echo "Connection removed, id: $connection->id\n";
             unset($this->connections[$index]);
         }
+        if(count($this->connections) == 0) {
+            echo "No more connections, stop generating data\n";
+            \Workerman\Lib\Timer::delAll();
+        }
     }
 
     public function generateAndSendData() {
         $timeout_between_data = 60 / $this->rate;
-        echo "generate function invoked\n";
-        echo "Timeout between data: $timeout_between_data\n";
+        echo "Start data generation";
         \Workerman\Lib\Timer::add($timeout_between_data, function()
         {
-            echo "Get into generation\n";
-            if(count($this->connections) > 0) {
-                echo "Generating and sending data\n for " . count($this->connections) . " connections\n";
-                $time_in_millis = round(microtime(true) * 1000);
-                foreach ($this->connections as $connection) {
-                    echo "Sending data to connection $connection->id on worker $connection->worker\n";
-                    $connection->send($time_in_millis);
-                }
+            $data = $this->randomDataGenerator->getData();
+            echo "Data: $data\n";
+            foreach ($this->connections as $connection) {
+                $connection->send($data);
             }
         });
     }
