@@ -19,16 +19,6 @@ ignored if random-rate flag is `true`
 randomnized the number of data we send in one minute
 
 ## 2. Supported ticks dan format
-### Stock Code
-> AAAA, BBBB, CCCC, DDDD
-### Data Source definition Format
-```json
-{
-    "stockCode": string,
-    "highestPrice": int,
-    "lowestPrice": int
-}
-```
 ### Data Format to be sent
 > StockCode|Price|B/S|Amount <br>
 > eg. AAAA|100|B|1
