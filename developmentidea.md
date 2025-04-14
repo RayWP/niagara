@@ -5,18 +5,27 @@
 - Java
 - Php
 - Php-Laravel
+- Rust
 
 # Specs
-## 1. This software should have several flags for condition<br>
-### Rate Flag
+## 1. This software should have several flags for condition
+### Host Flag
+--host(string) <br>
+the host address of the machine
 
+### Port Flag
+--port(int) <br>
+the port number for the service
+
+### Rate Flag
 --rate(int) <br>
 how many data should be send in one minute <br>
 ignored if random-rate flag is `true`
 
-### Random-rate flag
---random-rate(bool) <br>
-randomnized the number of data we send in one minute
+### Worker Flag
+--worker(int) <br>
+how many core workers to use
+
 
 ## 2. Supported ticks dan format
 ### Data Format to be sent
