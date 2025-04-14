@@ -1,3 +1,5 @@
+const { RandomDataGenerator } = require('./RandomDataGenerator');
+
 class DataHub {
     constructor(rate) {
         this.connections = [];
@@ -38,3 +40,5 @@ class DataHub {
         }, timeoutBetweenData);
     }
 }
+
+module.exports = { DataHub };

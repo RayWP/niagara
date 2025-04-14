@@ -13,3 +13,5 @@ class RandomDataGenerator {
         return `${randomStockCode}|${randomStockPrice}|${randomBuyOrSell}|${randomQuantity}`;
     }
 }
+
+module.exports = { RandomDataGenerator };
