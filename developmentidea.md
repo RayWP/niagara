@@ -31,3 +31,6 @@ how many core workers to use
 ### Data Format to be sent
 > StockCode|Price|B/S|Amount <br>
 > eg. AAAA|100|B|1
+
+# future feature
+## Chaos (randomly increase or decrease rate)

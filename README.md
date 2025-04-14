@@ -1,4 +1,4 @@
 # Niagara
-Niagara is self-generating running trade, can be used for fellow friends in FE Development to learn about stocks running trade
+Niagara is a self-hosted real-time data streaming platform designed to help developers learn how to build and manage data pipelines that handle real-time data efficiently. It can be used as a learning tool for fellow friends in Front-End Development to explore concepts related to stocks and running trade data.
 
 
