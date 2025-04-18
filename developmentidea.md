@@ -3,22 +3,23 @@
 - C#
 - GoLang
 - Java
-- Php
+- [NodeJS](./node-js/)
+- [Php](./php/)
 - Php-Laravel
 - Rust
 
 # Specs
 ## 1. This software should have several flags for condition
 ### Host Flag
---host(string) <br>
+--host(string) <br> (default: localhost)
 the host address of the machine
 
 ### Port Flag
---port(int) <br>
+--port(int) <br> (default: 8080)
 the port number for the service
 
 ### Rate Flag
---rate(int) <br>
+--rate(int) <br> (default: 60)
 how many data should be send in one minute <br>
 ignored if random-rate flag is `true`
 

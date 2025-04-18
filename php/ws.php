@@ -16,7 +16,7 @@ $longopts = [
 
 $options = getopt('', $longopts);
 echo json_encode($options) . PHP_EOL;
-$rate = $options['rate'] ?? 1;
+$rate = $options['rate'] ?? 60;
 $host = $options['host'] ?? 'localhost';
 $port = $options['port'] ?? 8000;
 $worker_count = $options['worker'] ?? 1;
