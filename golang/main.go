@@ -141,9 +141,13 @@ func (hub *DataHub) handleConnection(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Create new connection
+	// Create new connection with unique ID
+	hub.mutex.Lock()
+	connectionID := len(hub.connections) + 1
+	hub.mutex.Unlock()
+	
 	connection := &Connection{
-		id:         len(hub.connections) + 1,
+		id:         connectionID,
 		conn:       conn,
 		hub:        hub,
 		data:       make(chan string, 256), // Buffered channel to prevent blocking
